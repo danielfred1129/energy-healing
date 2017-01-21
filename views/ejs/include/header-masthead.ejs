@@ -1,0 +1,39 @@
+<header class="header masthead">
+  <div class="stripe">
+    <div class="userinfo">
+      <% if (user && user.email) { %>
+        <strong><%= user.email %></strong>
+        <a href="/logout">SIGN OUT</a>
+      <% } else { %>
+        <a href="/login">Login</a>
+      <% } %>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+          <ul class="nav nav-links">
+            <li>
+              <a href="/" class="rclickable rclickable--yellow-down">WELCOME</a>
+            </li>
+            <li>
+              <a href="/classList" class="rclickable rclickable--yellow-up">CLASSES</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <img class="nav-brand" src="/images/logo.png" alt="" />
+        </div>
+        <div class="col-sm-4">
+          <ul class="nav nav-links">
+            <li>
+              <a href="/healerList" class="rclickable rclickable--yellow-down">HEALERS</a>
+            </li>
+            <li>
+              <a href="/faq" class="rclickable rclickable--yellow-up">FAQs</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,47 @@
+<%
+pageTitle = "What we recommend for you"
+%>
+<% include ejs/layout/top.ejs %>
+<% include ejs/include/header-masthead.ejs %>
+
+<section class="section section--yellow">
+  <div class="container wide">
+    <div class="recommendbox">
+      <h1 class="title hide">What we recommend for you</h1>
+      <img class="title" src="/images/text-recommend.png" alt="" />
+      <div class="divider"></div>
+      <div class="row">
+        <ul class="video-list">
+          <% recommends.forEach(function(clas, i) { %>
+            <li class="col-md-4 col-sm-6">
+              <div class="classbox">
+                <div class="video need-decode"><%= clas.link %></div>
+                <p class="video-title">
+                  <a href="/classDetail/<%= clas._id.toString() %>/<%= encodeURIComponent(clas.title) %>" class="need-decode"><%= clas.title %></a>
+                </p>
+                  <span class="video-desc">
+                    <%= clas.healingMode %>  ·  <%= clas.healerName %><i class="fa fa-clock-o"></i> <%= clas.duration %>M
+                  </span>
+                <p class="video-mode">
+                  <% if(clas.mode == 'Meditation') { %>
+                  <span class="video-mode-orange">Meditation</span>
+                  <% } else if(clas.mode =='Exercise') { %>
+                  <span class="video-mode-blue">Exercise</span>
+                  <% } else if(clas.mode == 'Fireside Chat') { %>
+                  <span class="video-mode-black">Fireside Chat</span>
+                  <% } else if(clas.mode == 'Meditation/Exercise') { %>
+                  <span class="video-mode-pink">Meditation/Exercise</span>
+                  <% } else { %>
+                  <span class="video-mode-green">Kid Friendly</span>
+                  <% } %>
+                </p>
+              </div>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<% include ejs/include/footer.ejs %>
+<% include ejs/layout/bottom.ejs %>
